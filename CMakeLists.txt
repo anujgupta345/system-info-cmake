@@ -1,10 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 project(SYSTEMINFO LANGUAGES CXX)
-add_subdirectory(cpu)
-add_subdirectory(endian)
-add_subdirectory(memory)
-add_subdirectory(platform)
-add_executable(SYSTEMINFO src/main.cpp src/system_info.cpp)
-target_link_libraries(SYSTEMINFO PRIVATE CPU ENDIAN MEMORY PLATFORM)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)  
+include(subdirectories.cmake)
+include(target.cmake)
 
