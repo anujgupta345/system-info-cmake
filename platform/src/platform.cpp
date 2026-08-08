@@ -1,4 +1,5 @@
 #include "platform.h"
+
 #include <iostream>
 
 namespace Platform
@@ -23,29 +24,17 @@ void print()
               << TARGET_PROCESSOR << '\n';
 #endif
 
-#ifdef HOST_OS_NAME
-    std::cout << "Host OS          : "
-              << HOST_OS_NAME << '\n';
+#ifdef TARGET_POINTER_SIZE
+    std::cout << "Pointer Size     : "
+              << TARGET_POINTER_SIZE
+              << " bytes\n";
 #endif
 
-#ifdef HOST_OS_VERSION
-    std::cout << "Host Version     : "
-              << HOST_OS_VERSION << '\n';
+#ifdef TARGET_BYTE_ORDER
+    std::cout << "Byte Order       : "
+              << TARGET_BYTE_ORDER << '\n';
 #endif
-
-#ifdef HOST_PROCESSOR
-    std::cout << "Host Processor   : "
-              << HOST_PROCESSOR << '\n';
-#endif
-
-#ifdef PLATFORM_NAME
-    std::cout << "Platform         : "
-              << PLATFORM_NAME << '\n';
-#endif
-
-    // Ask the selected platform implementation
-    // to print its specific information.
-    printSpecific();
+printSpecific();
 }
 
 }
